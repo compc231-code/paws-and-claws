@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+
+    <title>Paws & Claws | 專業犬貓行為訓練與諮詢</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #FCFAF6;
+            --bg-secondary: #F3EFE6;
+            --bg-dark-accent: #1C2D27;
+            --text-main: #111E19;
+            --text-muted: #52635C;
+            --primary-orange: #D96A3A;
+            --primary-hover: #C55628;
+            --white: #ffffff;
+            --border-color: rgba(28, 45, 39, 0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', '微軟正黑體', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-primary);
+            line-height: 1.65;
+            letter-spacing: 0.02em;
+        }
+
+        .serif-italic {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .top-announcement {
+            background-color: var(--bg-dark-accent);
+            color: var(--bg-primary);
+            text-align: center;
+            padding: 8px 5%;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        header {
+            background-color: var(--bg-primary);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--text-main); }
+        
+        .btn-header {
+            background-color: var(--text-main);
+            color: var(--white);
+            padding: 10px 24px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn-header:hover { background-color: var(--primary-orange); }
+
+        #hero {
+            position: relative;
+            width: 100%;
+            min-height: calc(85vh - 40px);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            background-color: var(--bg-secondary);
+        }
+        .hero-content {
+            padding: 80px 10% 80px 12%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-orange);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        /* 第一張大圖 (Hero) 保留你的本機路徑 */
+        .hero-image-wrapper {
+            background-image: url('./images/Dogcatsunshine.png'); 
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #about {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 8rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 100px;
+            align-items: center;
+        }
+        .about-image-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: var(--bg-secondary);
+        }
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-text h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.75;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+        .btn-dark {
+            background-color: var(--bg-dark-accent);
+            color: var(--white);
+            padding: 16px 36px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn-dark:hover { background-color: var(--text-main); }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            padding: 16px 36px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid rgba(28, 45, 39, 0.2);
+            transition: all 0.3s;
+        }
+        .btn-outline:hover { 
+            border-color: var(--text-main);
+            background-color: rgba(28, 45, 39, 0.02); 
+        }
+
+        /* ==========================================
+           三大科學核心區塊
+           ========================================== */
+        #features {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 8rem 5%;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+        .section-header p {
+            color: var(--primary-orange);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+        .feature-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .feature-image-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background-color: var(--bg-secondary);
+        }
+        .feature-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .feature-card:hover .feature-image-wrapper img {
+            transform: scale(1.05); /* 滑鼠懸停圖片微微放大 */
+        }
+        .feature-number {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3rem;
+            color: var(--text-muted);
+            line-height: 1;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+        .feature-card:hover .feature-number {
+            color: var(--primary-orange);
+        }
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .feature-card h4 {
+            font-size: 1rem;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .feature-card p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* 預留區塊通用樣式 */
+        .section-placeholder {
+            padding: 6rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            color: var(--text-muted);
+        }
+
+        /* RWD 手機版調整 */
+        @media (max-width: 960px) {
+            #hero { grid-template-columns: 1fr; }
+            .hero-image-wrapper { height: 350px; order: -1; }
+            .hero-content { padding: 40px 5%; }
+            .hero-content h1 { font-size: 2.6rem; }
+            
+            #about { grid-template-columns: 1fr; gap: 50px; padding: 4rem 5%; }
+            .about-text h2 { font-size: 2.2rem; }
+            nav, .btn-header { display: none; }
+
+            /* 核心區塊手機版：變成上下排 */
+            .features-grid { grid-template-columns: 1fr; gap: 60px; }
+            .feature-number { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-announcement">
+        基於動物行為學與正向增強科學，打造和諧的伴侶動物生活學
+    </div>
+
+    <header>
+        <a href="#" class="logo">Paws & Claws</a>
+        <nav>
+            <ul>
+                <li><a href="#about">關於訓練師</a></li>
+                <li><a href="#features">科學核心</a></li>
+                <li><a href="#services">諮詢項目</a></li>
+                <li><a href="#faq">常見問答</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="btn-header" rel="noopener noreferrer">立即預約</a>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-tag">Behavior & Science</div>
+            <h1>Train<br>for Love<br>Bond for<span class="serif-italic"> Life</span></h1>
+            <p>拋棄傳統打罵與施壓，我們透過科學實證的行為分析，重建你與毛孩之間的信任紐帶，讓雙向溝通回歸生活。</p>
+            <div class="button-group">
+                <a href="#contact" class="btn-dark">預約初診評估</a>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <!-- 圖片已經由 CSS 背景圖載入 -->
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-image-wrapper">
+            <!-- 第二張圖片 (關於我) 保留你的本機路徑 -->
+            <img src="./images/9A441516-E198-4903-8F3A-2614ED147367.jpeg" alt="專業訓練師與寵物互動照片">
+        </div>
+        <div class="about-text">
+            <h2>More time<br>with our best<br><span class="serif-italic">friends</span></h2>
+            <p>哈囉！我是專屬您的寵物行為訓練師。我擁有多年的犬貓行為學實務經驗。我相信，毛孩的「問題行為」往往是壓力與環境衝突的求救訊號。比起單純的服從訓練，我更著重於找出問題根源，引導飼主成為最懂自己毛孩的心理專家。</p>
+            <div class="button-group">
+                <a href="#services" class="btn-dark">探索諮詢流程</a>
+                <a href="#features" class="btn-outline">了解科學原理</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 更新後的三大科學訓練基石區塊 🌟 -->
+    <section id="features">
+        <div class="section-header">
+            <p>Our Methodology</p>
+            <h2>科學實證的行為基石</h2>
+        </div>
+        <div class="features-grid">
+            
+            <!-- 核心 01 -->
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <!-- 使用 Unsplash 高畫質圖庫暫代，未來可更換為自己的圖片 -->
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="正向增強訓練">
+                </div>
+                <div class="feature-number">01</div>
+                <h3>正向增強</h3>
+                <h4>建立信任，而非恐懼</h4>
+                <p>揚棄傳統的打罵與威嚇。我們利用獎勵（食物、遊戲、關注）來鼓勵毛孩主動做出正確選擇。這不僅能提高學習效率，更能深化您與伴侶動物間的緊密羈絆。</p>
+            </div>
+
+            <!-- 核心 02 -->
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <!-- 使用 Unsplash 高畫質圖庫暫代 -->
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="系統減敏訓練">
+                </div>
+                <div class="feature-number">02</div>
+                <h3>系統減敏</h3>
+                <h4>從根源化解焦慮與恐懼</h4>
+                <p>面對雷聲、陌生人或看診等刺激引起的激動行為，我們不強迫壓制。而是透過微小且漸進的步驟，循序漸進地改變毛孩對恐懼事物的核心情緒反應。</p>
+            </div>
+
+            <!-- 核心 03 -->
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <!-- 使用 Unsplash 高畫質圖庫暫代 -->
+                    <img src="./images/Gemini_Generated_Image_3eh41g3eh41g3eh4.png" alt="環境豐富化">
+                </div>
+                <div class="feature-number">03</div>
+                <h3>環境豐富化</h3>
+                <h4>滿足天性的專屬生活提案</h4>
+                <p>許多「問題行為」源於缺乏身心刺激。我們將評估您的居家空間，透過嗅聞遊戲、益智互動與動線規劃，滿足犬貓的原始本能，讓壓力自然釋放。</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 下方預留區塊 -->
+    <section id="services" class="section-placeholder">
+        <h3>[ 服務與方案區塊預留 ]</h3>
+        <p>（線上諮詢、到府行為矯正、幼犬/幼貓預防諮詢）</p>
+    </section>
+
+    <section id="faq" class="section-placeholder">
+        <h3>[ 常見問答 FAQ 區塊預留 ]</h3>
+    </section>
+
+    <footer class="section-placeholder" style="background-color: var(--bg-dark-accent); color: var(--bg-secondary);">
+        <p>&copy; 2026 Paws & Claws. All Rights Reserved. 隱私權政策與服務條款</p>
+    </footer>
+
+</body>
+</html>
