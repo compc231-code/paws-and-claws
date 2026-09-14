@@ -30,11 +30,21 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            font-family: 'Plus Jakarta Sans', '微軟正黑體', sans-serif;
+            font-family: 'Plus Jakarta Sans', '蘋方-繁', '微軟正黑體', sans-serif;
             color: var(--text-main);
             background-color: var(--bg-primary);
-            line-height: 1.65;
-            letter-spacing: 0.02em;
+            line-height: 1.75;
+            letter-spacing: 0.03em;
+        }
+
+        /* 隱藏網頁滾動條，取消 smooth 改為 auto 實現瞬間跳轉定點 */
+        html {
+            scrollbar-width: none; 
+            -ms-overflow-style: none; 
+            scroll-behavior: auto; 
+        }
+        html::-webkit-scrollbar {
+            display: none; 
         }
 
         .serif-italic {
@@ -47,15 +57,15 @@
             background-color: var(--bg-dark-accent);
             color: var(--bg-primary);
             text-align: center;
-            padding: 8px 5%;
-            font-size: 0.85rem;
+            padding: 10px 5%;
+            font-size: 0.8rem;
             font-weight: 500;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
 
         header {
             background-color: var(--bg-primary);
-            padding: 20px 5%;
+            padding: 24px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -65,22 +75,22 @@
             z-index: 1000;
         }
         .logo {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-main);
             text-decoration: none;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.05em;
         }
         nav ul {
             list-style: none;
             display: flex;
-            gap: 40px;
+            gap: 45px;
         }
         nav a {
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
         nav a:hover { color: var(--text-main); }
@@ -88,52 +98,67 @@
         .btn-header {
             background-color: var(--text-main);
             color: var(--white);
-            padding: 10px 24px;
+            padding: 10px 26px;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: background 0.3s;
+            letter-spacing: 0.05em;
+            cursor: pointer; 
         }
         .btn-header:hover { background-color: var(--primary-orange); }
 
         #hero {
             position: relative;
             width: 100%;
-            min-height: calc(85vh - 40px);
+            min-height: 60vh; 
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1fr 1fr; 
             background-color: var(--bg-secondary);
         }
         .hero-content {
-            padding: 80px 10% 80px 12%;
+            padding: 60px 8% 40px 10%; 
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         .hero-tag {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             color: var(--primary-orange);
             font-weight: 700;
             margin-bottom: 20px;
         }
+        
         .hero-content h1 {
             font-size: 3.8rem;
             line-height: 1.15;
-            margin-bottom: 25px;
+            margin-bottom: 20px; 
             font-weight: 700;
             color: var(--text-main);
-        }
-        .hero-content p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 500px;
+            letter-spacing: -0.01em;
         }
         
-        /* 第一張大圖 (Hero) 保留你的本機路徑 */
+        .hero-zh-title {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+        }
+        
+        .hero-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 45px;
+            max-width: 500px;
+            line-height: 1.85;
+            letter-spacing: 0.04em;
+        }
+        
         .hero-image-wrapper {
             background-image: url('./images/Dogcatsunshine.png'); 
             background-size: cover;
@@ -142,53 +167,170 @@
             height: 100%;
         }
 
-        #about {
+        .section-container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 8rem 5%;
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 100px;
-            align-items: center;
+            padding: 3.5rem 6%;  
+            scroll-margin-top: 85px;  
         }
+
+        #about {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;                
+            align-items: flex-start;
+            padding-top: 3rem; 
+        }
+        
         .about-image-wrapper {
             width: 100%;
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
+            aspect-ratio: 1 / 1; 
+            max-height: 600px;
             border-radius: 8px;
             background-color: var(--bg-secondary);
+            overflow: hidden;
+            position: sticky;
+            top: 110px; 
         }
         .about-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 85%; 
         }
+        
         .about-text h2 {
+            font-family: 'Playfair Display', serif;
             font-size: 3rem;
             line-height: 1.2;
             color: var(--text-main);
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             font-weight: 700;
         }
         .about-text p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .trainer-info {
+            margin-top: 40px;
+            padding-top: 35px;
+            border-top: 1px solid var(--border-color);
+        }
+        .trainer-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 0.05em;
+        }
+        .trainer-name::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary-orange);
+            border-radius: 2px;
+        }
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin-bottom: 40px;
-            line-height: 1.75;
+        }
+        .resume-section h4 {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(28, 45, 39, 0.1);
+        }
+        .resume-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .resume-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .resume-list li::before {
+            content: '▴'; 
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-orange); 
+            font-size: 1rem;
+            line-height: 1.6;
         }
         
         .button-group {
             display: flex;
+            flex-wrap: wrap;
             gap: 15px;
         }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--white);
+            color: var(--text-main);
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid rgba(28, 45, 39, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .btn-social svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            transition: transform 0.3s;
+        }
+        .btn-social:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        }
+        .btn-social.ig:hover {
+            border-color: #E1306C;
+            color: #E1306C;
+        }
+        .btn-social.fb:hover {
+            border-color: #1877F2;
+            color: #1877F2;
+        }
+        .btn-social:hover svg {
+            transform: scale(1.1);
+        }
+        
         .btn-dark {
             background-color: var(--bg-dark-accent);
             color: var(--white);
-            padding: 16px 36px;
+            padding: 16px 38px;
             text-decoration: none;
             border-radius: 50px;
+            font-size: 0.9rem;
             font-weight: 600;
             transition: background 0.3s;
+            letter-spacing: 0.05em;
+            display: inline-block;
         }
         .btn-dark:hover { background-color: var(--text-main); }
         
@@ -198,44 +340,42 @@
             padding: 16px 36px;
             text-decoration: none;
             border-radius: 50px;
+            font-size: 0.9rem;
             font-weight: 600;
             border: 1px solid rgba(28, 45, 39, 0.2);
             transition: all 0.3s;
+            letter-spacing: 0.05em;
+            display: inline-block;
         }
         .btn-outline:hover { 
             border-color: var(--text-main);
             background-color: rgba(28, 45, 39, 0.02); 
         }
 
-        /* ==========================================
-           三大科學核心區塊
-           ========================================== */
-        #features {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 8rem 5%;
-        }
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem; 
         }
         .section-header h2 {
             font-size: 2.5rem;
             color: var(--text-main);
             font-weight: 700;
+            letter-spacing: 0.02em;
         }
         .section-header p {
             color: var(--primary-orange);
             font-weight: 600;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
+            font-size: 0.75rem;
+            margin-bottom: 12px;
         }
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
+            gap: 40px;
+            max-width: 1150px; 
+            margin: 0 auto;
         }
         .feature-card {
             display: flex;
@@ -243,81 +383,264 @@
         }
         .feature-image-wrapper {
             width: 100%;
-            aspect-ratio: 4 / 3;
-            border-radius: 8px;
+            aspect-ratio: 4 / 3; 
+            border-radius: 4px;
             overflow: hidden;
-            margin-bottom: 30px;
+            margin-bottom: 16px; 
             background-color: var(--bg-secondary);
         }
         .feature-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .feature-card:hover .feature-image-wrapper img {
-            transform: scale(1.05); /* 滑鼠懸停圖片微微放大 */
+            transform: scale(1.03);
         }
         .feature-number {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 3rem;
-            color: var(--text-muted);
+            font-size: 2rem; 
+            color: rgba(28, 45, 39, 0.3);
             line-height: 1;
-            margin-bottom: 15px;
+            margin-bottom: 8px; 
             transition: color 0.3s ease;
         }
         .feature-card:hover .feature-number {
             color: var(--primary-orange);
         }
         .feature-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem; 
             color: var(--text-main);
-            margin-bottom: 8px;
+            margin-bottom: 4px; 
             font-weight: 700;
         }
         .feature-card h4 {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: var(--primary-orange);
-            margin-bottom: 20px;
+            margin-bottom: 12px; 
             font-weight: 600;
+            letter-spacing: 0.05em;
         }
         .feature-card p {
+            font-size: 0.95rem; 
+            color: var(--text-muted);
+            line-height: 1.6; 
+        }
+
+        /* --- 全新服務據點樣式：控制高度、確保不被裁切 --- */
+        #locations {
+            background-color: var(--bg-primary);
+            padding: 3.5rem 6%; /* 極限縮減上下留白 */
+            border-top: 1px solid var(--border-color);
+            scroll-margin-top: 80px; /* 完美對齊 Header */
+        }
+        .locations-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr; /* 左文字寬一點，右地圖窄一點 */
+            gap: 40px;
+            align-items: center; /* 讓文字跟地圖完美垂直置中 */
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .locations-text h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .locations-text > p {
             font-size: 1.05rem;
             color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .online-exempt {
+            background-color: var(--bg-dark-accent);
+            color: var(--bg-secondary);
+            padding: 24px 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-orange);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .online-exempt p {
+            font-size: 0.95rem;
             line-height: 1.7;
+            margin-bottom: 0;
+        }
+        .online-exempt strong {
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+        
+        /* 寫實台灣地圖設計 */
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 220px; /* 限制地圖寬度，防止高度過度膨脹 */
+            aspect-ratio: 1 / 2; /* 設定比例，確保 SVG 正確顯示 */
+            margin: 0 auto;
+        }
+        .map-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* 地圖動畫與標籤定位 */
+        .map-pin {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 0 rgba(217, 106, 58, 0.4);
+            animation: pulse-pin 2s infinite;
+        }
+        @keyframes pulse-pin {
+            to { box-shadow: 0 0 0 15px rgba(217, 106, 58, 0); }
+        }
+        .pin-label {
+            position: absolute;
+            left: 20px; /* 標籤統一放在點的右側 */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            background: rgba(255,255,255,0.9);
+            padding: 4px 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            white-space: nowrap;
         }
 
-        /* 預留區塊通用樣式 */
-        .section-placeholder {
-            padding: 6rem 5%;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--bg-primary);
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 24px 0;
+        }
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question::after {
+            content: '+';
+            color: var(--primary-orange);
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+        .faq-answer {
+            font-size: 0.95rem;
             color: var(--text-muted);
+            line-height: 1.8;
         }
 
-        /* RWD 手機版調整 */
+        .modal-overlay {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 45, 39, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: var(--bg-primary);
+            padding: 45px 35px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-modal:hover {
+            color: var(--primary-orange);
+        }
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
         @media (max-width: 960px) {
-            #hero { grid-template-columns: 1fr; }
+            #hero { grid-template-columns: 1fr; min-height: auto; }
             .hero-image-wrapper { height: 350px; order: -1; }
-            .hero-content { padding: 40px 5%; }
-            .hero-content h1 { font-size: 2.6rem; }
+            .hero-content { padding: 60px 6%; }
+            .hero-content h1 { font-size: 2.6rem; } 
+            .hero-zh-title { font-size: 1.3rem; }
             
-            #about { grid-template-columns: 1fr; gap: 50px; padding: 4rem 5%; }
+            #about { grid-template-columns: 1fr; gap: 40px; padding-top: 4rem; }
+            .about-image-wrapper {
+                max-height: 500px;
+                aspect-ratio: 1 / 1;
+                position: relative; 
+                top: 0;
+            }
             .about-text h2 { font-size: 2.2rem; }
             nav, .btn-header { display: none; }
 
-            /* 核心區塊手機版：變成上下排 */
-            .features-grid { grid-template-columns: 1fr; gap: 60px; }
-            .feature-number { font-size: 2.5rem; }
+            .features-grid { grid-template-columns: 1fr; gap: 40px; }
+            .button-group { flex-direction: column; align-items: stretch; }
+            .btn-dark, .btn-outline, .btn-social { text-align: center; justify-content: center; }
+            
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .locations-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="top-announcement">
-        基於動物行為學與正向增強科學，打造和諧的伴侶動物生活學
+        基於動物行為學與正向增強科學 ‧ 打造和諧的伴侶動物生活學
     </div>
 
     <header>
@@ -327,65 +650,104 @@
                 <li><a href="#about">關於訓練師</a></li>
                 <li><a href="#features">科學核心</a></li>
                 <li><a href="#services">諮詢項目</a></li>
+                <li><a href="#locations">服務據點</a></li>
                 <li><a href="#faq">常見問答</a></li>
             </ul>
         </nav>
-        <a href="#contact" class="btn-header" rel="noopener noreferrer">立即預約</a>
+        <a onclick="openModal()" class="btn-header">立即預約</a>
     </header>
 
     <section id="hero">
         <div class="hero-content">
             <div class="hero-tag">Behavior & Science</div>
             <h1>Train<br>for Love<br>Bond for<span class="serif-italic"> Life</span></h1>
-            <p>拋棄傳統打罵與施壓，我們透過科學實證的行為分析，重建你與毛孩之間的信任紐帶，讓雙向溝通回歸生活。</p>
+            <h2 class="hero-zh-title">用理解，找回您與毛孩的專屬默契。</h2>
+            <p>告別傳統的打罵與施壓，透過科學行為分析讀懂毛孩。重建您與牠的信任紐帶，讓快樂的雙向溝通回歸生活。</p>
+            
             <div class="button-group">
-                <a href="#contact" class="btn-dark">預約初診評估</a>
+                <a href="https://www.instagram.com/jia_pettrainer?igsh=MTRodjc5a3B5ZW14MQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="btn-social ig">
+                    <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    IG 諮詢
+                </a>
+                <a href="https://www.facebook.com/share/1J8uqudU16/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-social fb">
+                    <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                    FB 諮詢
+                </a>
             </div>
         </div>
         <div class="hero-image-wrapper">
-            <!-- 圖片已經由 CSS 背景圖載入 -->
         </div>
     </section>
 
-    <section id="about">
+    <!-- 訓練師區塊（已套用您的文案修改） -->
+    <section id="about" class="section-container">
         <div class="about-image-wrapper">
-            <!-- 第二張圖片 (關於我) 保留你的本機路徑 -->
-            <img src="./images/9A441516-E198-4903-8F3A-2614ED147367.jpeg" alt="專業訓練師與寵物互動照片">
+            <img src="./images/9A441516-E198-4903-8F3A-2614ED147367.jpeg" alt="專業行為訓練師 嘉嘉">
         </div>
         <div class="about-text">
             <h2>More time<br>with our best<br><span class="serif-italic">friends</span></h2>
-            <p>哈囉！我是專屬您的寵物行為訓練師。我擁有多年的犬貓行為學實務經驗。我相信，毛孩的「問題行為」往往是壓力與環境衝突的求救訊號。比起單純的服從訓練，我更著重於找出問題根源，引導飼主成為最懂自己毛孩的心理專家。</p>
+            <p>每一次的焦慮與衝突，其實都是毛孩在表達需求。我們致力於運用科學方法，搭起您與伴侶動物間的溝通橋樑。當理解取代了責罵，您將發現，與毛孩和諧共處的日常，其實可以如此輕鬆自在。</p>
+            
+            <div class="trainer-info">
+                <div class="trainer-name">專業犬貓行為訓練師 嘉嘉</div>
+                
+                <div class="resume-grid">
+                    <div class="resume-section">
+                        <h4>專業資歷</h4>
+                        <ul class="resume-list">
+                            <li>完美狗狗訓練計劃研究聯盟訓練師</li>
+                            <li>ABRA國際訓練師培訓認證CDT-LE資格</li>
+                            <li>第三，五屆ABRA狗行為訓練師培訓認證</li>
+                            <li>第一屆Allcats貓行為進階班培訓</li>
+                            <li>第四屆Allcats貓行為基礎班培訓</li>
+                            <li>台灣TGA寵物美容協會C級美容師認證</li>
+                            <li>Catti cani-Cat course workshop 幼貓與貓進修課程</li>
+                            <li>Catti cani-Cat course workshop 狗的行為發展進修課程</li>
+                            <li>Musical Canine Freestyle Training Camp 人狗共舞培訓認證</li>
+                            <li>寵物老年照護課程</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h4>講師經歷</h4>
+                        <ul class="resume-list">
+                            <li>嘉義南華大學終身研習學院 專任寵物行為講師</li>
+                            <li>嘉義市動物守護協會配合 狗狗訓練師與講師</li>
+                            <li>嘉義市婦女協會寵物課程專任講師</li>
+                            <li>2019~2021雲林科技大學汪汪社講師</li>
+                            <li>2018高雄三民家商動保社狗行為學講師</li>
+                            <li>2020台中市寵物商業同業公會講師</li>
+                            <li>2020虎尾科技大學進修研習學院講師</li>
+                            <li>優寵養貓人行為聯盟講師</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="button-group">
-                <a href="#services" class="btn-dark">探索諮詢流程</a>
-                <a href="#features" class="btn-outline">了解科學原理</a>
+                <a href="#features" class="btn-dark">了解科學原理</a>
+                <a href="#services" class="btn-outline">探索諮詢流程</a>
             </div>
         </div>
     </section>
 
-    <!-- 🌟 更新後的三大科學訓練基石區塊 🌟 -->
-    <section id="features">
+    <section id="features" class="section-container">
         <div class="section-header">
             <p>Our Methodology</p>
             <h2>科學實證的行為基石</h2>
         </div>
         <div class="features-grid">
-            
-            <!-- 核心 01 -->
             <div class="feature-card">
                 <div class="feature-image-wrapper">
-                    <!-- 使用 Unsplash 高畫質圖庫暫代，未來可更換為自己的圖片 -->
                     <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="正向增強訓練">
                 </div>
                 <div class="feature-number">01</div>
                 <h3>正向增強</h3>
                 <h4>建立信任，而非恐懼</h4>
-                <p>揚棄傳統的打罵與威嚇。我們利用獎勵（食物、遊戲、關注）來鼓勵毛孩主動做出正確選擇。這不僅能提高學習效率，更能深化您與伴侶動物間的緊密羈絆。</p>
+                <p>揚棄傳統的打罵教育。我們利用獎勵（食物、遊戲、關注）來鼓勵毛孩主動做出正確選擇。這不僅能提高學習效率，更能深化您與伴侶動物間的緊密羈絆。</p>
             </div>
-
-            <!-- 核心 02 -->
             <div class="feature-card">
                 <div class="feature-image-wrapper">
-                    <!-- 使用 Unsplash 高畫質圖庫暫代 -->
                     <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="系統減敏訓練">
                 </div>
                 <div class="feature-number">02</div>
@@ -393,11 +755,8 @@
                 <h4>從根源化解焦慮與恐懼</h4>
                 <p>面對雷聲、陌生人或看診等刺激引起的激動行為，我們不強迫壓制。而是透過微小且漸進的步驟，循序漸進地改變毛孩對恐懼事物的核心情緒反應。</p>
             </div>
-
-            <!-- 核心 03 -->
             <div class="feature-card">
                 <div class="feature-image-wrapper">
-                    <!-- 使用 Unsplash 高畫質圖庫暫代 -->
                     <img src="./images/Gemini_Generated_Image_3eh41g3eh41g3eh4.png" alt="環境豐富化">
                 </div>
                 <div class="feature-number">03</div>
@@ -405,24 +764,165 @@
                 <h4>滿足天性的專屬生活提案</h4>
                 <p>許多「問題行為」源於缺乏身心刺激。我們將評估您的居家空間，透過嗅聞遊戲、益智互動與動線規劃，滿足犬貓的原始本能，讓壓力自然釋放。</p>
             </div>
-
         </div>
     </section>
 
-    <!-- 下方預留區塊 -->
-    <section id="services" class="section-placeholder">
-        <h3>[ 服務與方案區塊預留 ]</h3>
-        <p>（線上諮詢、到府行為矯正、幼犬/幼貓預防諮詢）</p>
+    <section id="services" class="section-container" style="border-top: 1px solid var(--border-color);">
+        <div class="section-header">
+            <p>Our Services</p>
+            <h2>客製化的行為轉變方案</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="到府行為調整">
+                </div>
+                <h3>1對1 到府行為調整</h3>
+                <h4>深入真實環境，精準解決痛點</h4>
+                <p>專業訓練師親自到府，依據您的居家動線、環境豐富化指標，為犬貓量身打造專屬生活提案，從根源化解焦慮與衝突。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="線上視訊諮詢">
+                </div>
+                <h3>遠端視訊行為諮詢</h3>
+                <h4>跨越地域限制，無壓力雙向溝通</h4>
+                <p>專為極度敏感、害怕陌生人到訪的毛孩設計。透過視訊連線，讓犬貓在最安心的專屬領地內展現真實行為；訓練師將透過鏡頭即時檢視居家環境，並同步指導您最適切的應對技巧。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="行為基礎線上課程">
+                </div>
+                <h3>行為基礎線上課程</h3>
+                <h4>掌握科學核心，從觀念開始改變</h4>
+                <p>專為想深入了解伴侶動物行為的飼主設計。我們將複雜的科學理論轉化為易懂的線上課程，協助您在日常實作前先建立正確的知識架構，從根本讀懂毛孩的真實需求。</p>
+            </div>
+        </div>
     </section>
 
-    <section id="faq" class="section-placeholder">
-        <h3>[ 常見問答 FAQ 區塊預留 ]</h3>
+    <!-- 重新設計：雙欄並排與高擬真台灣地圖 -->
+    <section id="locations">
+        <div class="locations-grid">
+            <!-- 左側文字說明 -->
+            <div class="locations-text">
+                <p style="color: var(--primary-orange); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 10px;">Service Area</p>
+                <h2>到府服務，親臨指導</h2>
+                <p>我們主要服務<strong>台灣中南部</strong>的毛孩家庭，由訓練師親自到府了解最真實的生活環境與動線，針對痛點進行一對一專屬指導。</p>
+                
+                <div class="online-exempt">
+                    <p>🌐 <strong>不在左列服務地區嗎？</strong><br>別擔心！我們的<strong>遠端視訊諮詢</strong>與<strong>線上課程</strong>完全不受地域限制。只要有網路，全台皆可隨時開啟您與毛孩的和諧生活旅程。</p>
+                </div>
+            </div>
+            
+            <!-- 右側：高度受限的擬真台灣地圖 -->
+            <div class="map-wrapper">
+                <svg class="map-svg" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 錯位陰影層 (呈現圖片中的立體感) -->
+                    <path d="M 64,4 C 69,5 72,10 75,18 C 76,26 79,34 77,44 C 75,56 71,70 68,85 C 64,105 58,125 50,150 C 46,168 45,185 41,192 C 37,198 31,193 30,185 C 28,172 26,155 24,142 C 21,128 17,115 16,102 C 15,88 17,72 22,60 C 26,48 35,38 45,25 C 50,18 58,5 64,4 Z" 
+                          fill="rgba(217, 106, 58, 0.12)" transform="translate(3, 4)" />
+                    
+                    <!-- 台灣本體主輪廓 -->
+                    <path d="M 64,4 C 69,5 72,10 75,18 C 76,26 79,34 77,44 C 75,56 71,70 68,85 C 64,105 58,125 50,150 C 46,168 45,185 41,192 C 37,198 31,193 30,185 C 28,172 26,155 24,142 C 21,128 17,115 16,102 C 15,88 17,72 22,60 C 26,48 35,38 45,25 C 50,18 58,5 64,4 Z" 
+                          fill="#ffffff" stroke="#D96A3A" stroke-width="1.5" />
+                </svg>
+                
+                <!-- 精準定位於西海岸的城市閃爍點與標籤 -->
+                <div class="map-pin" style="top: 30%; left: 26%;">
+                    <span class="pin-label">台中</span>
+                </div>
+                <div class="map-pin" style="top: 37%; left: 22%;">
+                    <span class="pin-label">彰化</span>
+                </div>
+                <div class="map-pin" style="top: 45%; left: 18%;">
+                    <span class="pin-label">雲林</span>
+                </div>
+                <div class="map-pin" style="top: 53%; left: 17%;">
+                    <span class="pin-label">嘉義</span>
+                </div>
+                <div class="map-pin" style="top: 64%; left: 20%;">
+                    <span class="pin-label">台南</span>
+                </div>
+                <div class="map-pin" style="top: 76%; left: 25%;">
+                    <span class="pin-label">高雄</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer class="section-placeholder" style="background-color: var(--bg-dark-accent); color: var(--bg-secondary);">
-        <p>&copy; 2026 Paws & Claws. All Rights Reserved. 隱私權政策與服務條款</p>
-        
+    <section id="faq" style="background-color: var(--bg-secondary); padding: 5rem 6%; scroll-margin-top: 85px;">
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+            <p>Common Questions</p>
+            <h2>關於諮詢的常見疑問</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">需要上幾堂課才會看到毛孩的改變？</div>
+                <div class="faq-answer">行為轉變並非魔法，而是基於系統減敏與信任重組。一般在第一堂課進行環境與壓力評估後，飼主調整互動方式，數週內即可看到明顯改善。我們提供長期的售後維運監控指導，確保訓練效果不中斷。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">線上諮詢的效果會不會比到府差？</div>
+                <div class="faq-answer">不會的。對於極度敏感、恐懼陌生人到府的犬貓，線上諮詢反而能讓牠們在最安心的環境下展現真實行為。透過我們優化過的流暢視訊與內容分享架構，學習效率同樣精準。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" style="border: none;">我的個人隱私與預約資料會受到保護嗎？</div>
+                <div class="faq-answer">是的，本站高度重視技術與效能優化。我們配置了專業的主機安全防護與 SSL 加密傳輸協定（正如您在網址列看到的鎖頭），確保您的預約資料、刷卡金流與寵物資訊皆受到最高規格的資安保護。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="max-width: 1300px; margin: 0 auto; padding: 5rem 6%; text-align: center; scroll-margin-top: 85px;">
+        <p style="color: var(--primary-orange); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 12px;">Start Today</p>
+        <h2 style="font-size: 2.5rem; color: var(--text-main); font-weight: 700; margin-bottom: 20px;">找回雙向溝通的快樂生活</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05rem;">每個毛孩都有獨特的個性與需求。請點擊下方填寫課前評估問卷，讓我們初步了解毛孩的品種資訊與日常狀況，以利後續為您安排最合適的專屬訓練課程。</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBE2c2S0SIq3ZtZ3AfIlcq2pPNgO2OJZP5ALQf1kEZ8CrLJg/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-dark" style="padding: 16px 40px; font-size: 1rem;">填寫專屬評估問卷</a>
+    </section>
+
+    <footer style="background-color: var(--bg-dark-accent); color: var(--bg-secondary); padding: 4rem 6%; text-align: center; border-top: 1px solid var(--border-color);">
+        <div style="max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <p style="font-size: 0.9rem; color: rgba(243, 239, 230, 0.7);">&copy; 2026 Paws & Claws. All Rights Reserved. </p>
+            <p style="font-size: 0.85rem; color: rgba(243, 239, 230, 0.5);">本網站採用高標準 RWD 響應式設計、SEO 架構優化與專業安全主機配置，保護您的資安隱私。</p>
+        </div>
     </footer>
+
+    <!-- 預約社群彈出視窗 -->
+    <div id="bookingModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px; font-weight: 700;">選擇諮詢管道</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;">點擊下方按鈕，透過您習慣的社群軟體</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">直接與訓練師嘉嘉聯繫預約評估：</p>
+            
+            <div class="modal-buttons">
+                <a href="https://www.instagram.com/jia_pettrainer?igsh=MTRodjc5a3B5ZW14MQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="btn-social ig">
+                    <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    前往 IG 諮詢預約
+                </a>
+                <a href="https://www.facebook.com/share/1J8uqudU16/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-social fb">
+                    <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                    前往 FB 諮詢預約
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
