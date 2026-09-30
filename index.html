@@ -37,6 +37,7 @@
             letter-spacing: 0.03em;
         }
 
+        /* 隱藏網頁滾動條，取消 smooth 改為 auto 實現瞬間跳轉定點 */
         html {
             scrollbar-width: none; 
             -ms-overflow-style: none; 
@@ -330,7 +331,6 @@
             transition: background 0.3s;
             letter-spacing: 0.05em;
             display: inline-block;
-            cursor: pointer;
         }
         .btn-dark:hover { background-color: var(--text-main); }
         
@@ -679,7 +679,7 @@
     <!-- 訓練師區塊 -->
     <section id="about" class="section-container">
         <div class="about-image-wrapper">
-            <img src="./images/9A441516-E198-4903-8F3A-2614ED147367.jpeg" alt="專業行為訓練師 嘉嘉">
+            <img src="./images/S__22372883.jpg" alt="專業行為訓練師 嘉嘉">
         </div>
         <div class="about-text">
             <h2>More time<br>with our best friends</h2>
@@ -714,6 +714,7 @@
                             <li>2018高雄三民家商動保社狗行為學講師</li>
                             <li>2020-2026台中市寵物商業同業公會講師</li>
                             <li>2025-2026 中華貓業發展協回狗行為課程講師</li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -798,6 +799,7 @@
     <!-- 服務據點 -->
     <section id="locations">
         <div class="locations-grid">
+            <!-- 左側文字說明 -->
             <div class="locations-text">
                 <p style="color: var(--primary-orange); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 10px;">Service Area</p>
                 <h2>到府服務，親臨指導</h2>
@@ -808,10 +810,12 @@
                 </div>
             </div>
             
+            <!-- 右側：高度受限的擬真台灣地圖 -->
             <div class="map-wrapper">
                 <svg class="map-svg" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 64,4 C 69,5 72,10 75,18 C 76,26 79,34 77,44 C 75,56 71,70 68,85 C 64,105 58,125 50,150 C 46,168 45,185 41,192 C 37,198 31,193 30,185 C 28,172 26,155 24,142 C 21,128 17,115 16,102 C 15,88 17,72 22,60 C 26,48 35,38 45,25 C 50,18 58,5 64,4 Z" 
                           fill="rgba(217, 106, 58, 0.12)" transform="translate(3, 4)" />
+                    
                     <path d="M 64,4 C 69,5 72,10 75,18 C 76,26 79,34 77,44 C 75,56 71,70 68,85 C 64,105 58,125 50,150 C 46,168 45,185 41,192 C 37,198 31,193 30,185 C 28,172 26,155 24,142 C 21,128 17,115 16,102 C 15,88 17,72 22,60 C 26,48 35,38 45,25 C 50,18 58,5 64,4 Z" 
                           fill="#ffffff" stroke="#D96A3A" stroke-width="1.5" />
                 </svg>
@@ -859,7 +863,6 @@
         </div>
     </section>
 
-    <!-- 填寫問卷區塊 -->
     <section id="contact" style="max-width: 1300px; margin: 0 auto; padding: 5rem 6%; text-align: center; scroll-margin-top: 85px;">
         <p style="color: var(--primary-orange); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 12px;">Start Today</p>
         <h2 style="font-size: 2.5rem; color: var(--text-main); font-weight: 700; margin-bottom: 20px;">找回雙向溝通的快樂生活</h2>
@@ -895,7 +898,7 @@
         </div>
     </div>
 
-    <!-- 問卷選擇彈出視窗 (DOG / CAT) -->
+    <!-- 問卷選擇彈出視窗 -->
     <div id="formModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-modal" onclick="closeFormModal()">&times;</span>
@@ -914,7 +917,6 @@
     </div>
 
     <script>
-        // 控制社群預約視窗
         function openModal() {
             const modal = document.getElementById('bookingModal');
             modal.classList.add('active');
@@ -925,7 +927,6 @@
             modal.classList.remove('active');
         }
 
-        // 控制問卷選擇視窗
         function openFormModal() {
             const formModal = document.getElementById('formModal');
             formModal.classList.add('active');
@@ -936,7 +937,6 @@
             formModal.classList.remove('active');
         }
 
-        // 點擊視窗外圍空白處時自動關閉
         window.onclick = function(event) {
             const bookingModal = document.getElementById('bookingModal');
             const formModal = document.getElementById('formModal');
