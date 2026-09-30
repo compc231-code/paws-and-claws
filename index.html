@@ -37,7 +37,6 @@
             letter-spacing: 0.03em;
         }
 
-        /* 隱藏網頁滾動條，取消 smooth 改為 auto 實現瞬間跳轉定點 */
         html {
             scrollbar-width: none; 
             -ms-overflow-style: none; 
@@ -331,6 +330,7 @@
             transition: background 0.3s;
             letter-spacing: 0.05em;
             display: inline-block;
+            cursor: pointer;
         }
         .btn-dark:hover { background-color: var(--text-main); }
         
@@ -429,18 +429,17 @@
             line-height: 1.6; 
         }
 
-        /* --- 全新服務據點樣式：控制高度、確保不被裁切 --- */
         #locations {
             background-color: var(--bg-primary);
-            padding: 3.5rem 6%; /* 極限縮減上下留白 */
+            padding: 3.5rem 6%; 
             border-top: 1px solid var(--border-color);
-            scroll-margin-top: 80px; /* 完美對齊 Header */
+            scroll-margin-top: 80px; 
         }
         .locations-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr; /* 左文字寬一點，右地圖窄一點 */
+            grid-template-columns: 1.2fr 0.8fr; 
             gap: 40px;
-            align-items: center; /* 讓文字跟地圖完美垂直置中 */
+            align-items: center; 
             max-width: 1100px;
             margin: 0 auto;
         }
@@ -475,12 +474,11 @@
             font-weight: 600;
         }
         
-        /* 寫實台灣地圖設計 */
         .map-wrapper {
             position: relative;
             width: 100%;
-            max-width: 220px; /* 限制地圖寬度，防止高度過度膨脹 */
-            aspect-ratio: 1 / 2; /* 設定比例，確保 SVG 正確顯示 */
+            max-width: 220px; 
+            aspect-ratio: 1 / 2; 
             margin: 0 auto;
         }
         .map-svg {
@@ -491,7 +489,6 @@
             height: 100%;
         }
         
-        /* 地圖動畫與標籤定位 */
         .map-pin {
             position: absolute;
             width: 12px;
@@ -507,7 +504,7 @@
         }
         .pin-label {
             position: absolute;
-            left: 20px; /* 標籤統一放在點的右側 */
+            left: 20px; 
             top: 50%;
             transform: translateY(-50%);
             font-size: 0.85rem;
@@ -679,13 +676,13 @@
         </div>
     </section>
 
-    <!-- 訓練師區塊（已套用您的文案修改） -->
+    <!-- 訓練師區塊 -->
     <section id="about" class="section-container">
         <div class="about-image-wrapper">
             <img src="./images/9A441516-E198-4903-8F3A-2614ED147367.jpeg" alt="專業行為訓練師 嘉嘉">
         </div>
         <div class="about-text">
-            <h2>More time<br>with our best friends</h1>
+            <h2>More time<br>with our best friends</h2>
             <p>每一次的困擾與衝突，其實都是毛孩在表達需求。我們致力於運用科學方法，建立您與伴侶動物間的溝通橋樑。當理解取代了責罵與困惑，您將發現，與毛孩和諧共處的日常便不再困難。</p>
             
             <div class="trainer-info">
@@ -717,7 +714,6 @@
                             <li>2018高雄三民家商動保社狗行為學講師</li>
                             <li>2020-2026台中市寵物商業同業公會講師</li>
                             <li>2025-2026 中華貓業發展協回狗行為課程講師</li>
-                            
                         </ul>
                     </div>
                 </div>
@@ -799,10 +795,9 @@
         </div>
     </section>
 
-    <!-- 重新設計：雙欄並排與高擬真台灣地圖 -->
+    <!-- 服務據點 -->
     <section id="locations">
         <div class="locations-grid">
-            <!-- 左側文字說明 -->
             <div class="locations-text">
                 <p style="color: var(--primary-orange); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 10px;">Service Area</p>
                 <h2>到府服務，親臨指導</h2>
@@ -813,19 +808,14 @@
                 </div>
             </div>
             
-            <!-- 右側：高度受限的擬真台灣地圖 -->
             <div class="map-wrapper">
                 <svg class="map-svg" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
-                    <!-- 錯位陰影層 (呈現圖片中的立體感) -->
                     <path d="M 64,4 C 69,5 72,10 75,18 C 76,26 79,34 77,44 C 75,56 71,70 68,85 C 64,105 58,125 50,150 C 46,168 45,185 41,192 C 37,198 31,193 30,185 C 28,172 26,155 24,142 C 21,128 17,115 16,102 C 15,88 17,72 22,60 C 26,48 35,38 45,25 C 50,18 58,5 64,4 Z" 
                           fill="rgba(217, 106, 58, 0.12)" transform="translate(3, 4)" />
-                    
-                    <!-- 台灣本體主輪廓 -->
                     <path d="M 64,4 C 69,5 72,10 75,18 C 76,26 79,34 77,44 C 75,56 71,70 68,85 C 64,105 58,125 50,150 C 46,168 45,185 41,192 C 37,198 31,193 30,185 C 28,172 26,155 24,142 C 21,128 17,115 16,102 C 15,88 17,72 22,60 C 26,48 35,38 45,25 C 50,18 58,5 64,4 Z" 
                           fill="#ffffff" stroke="#D96A3A" stroke-width="1.5" />
                 </svg>
                 
-                <!-- 精準定位於西海岸的城市閃爍點與標籤 -->
                 <div class="map-pin" style="top: 30%; left: 26%;">
                     <span class="pin-label">台中</span>
                 </div>
@@ -869,11 +859,12 @@
         </div>
     </section>
 
+    <!-- 填寫問卷區塊 -->
     <section id="contact" style="max-width: 1300px; margin: 0 auto; padding: 5rem 6%; text-align: center; scroll-margin-top: 85px;">
         <p style="color: var(--primary-orange); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 12px;">Start Today</p>
         <h2 style="font-size: 2.5rem; color: var(--text-main); font-weight: 700; margin-bottom: 20px;">找回雙向溝通的快樂生活</h2>
         <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05rem;">每個毛孩都有獨特的個性與需求。請點擊下方填寫課前評估問卷，讓我們初步了解毛孩的品種資訊與日常狀況，以利後續為您安排最合適的專屬訓練課程。</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBE2c2S0SIq3ZtZ3AfIlcq2pPNgO2OJZP5ALQf1kEZ8CrLJg/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-dark" style="padding: 16px 40px; font-size: 1rem;">填寫專屬評估問卷</a>
+        <a onclick="openFormModal()" class="btn-dark" style="padding: 16px 40px; font-size: 1rem; cursor: pointer;">填寫專屬評估問卷</a>
     </section>
 
     <footer style="background-color: var(--bg-dark-accent); color: var(--bg-secondary); padding: 4rem 6%; text-align: center; border-top: 1px solid var(--border-color);">
@@ -904,7 +895,26 @@
         </div>
     </div>
 
+    <!-- 問卷選擇彈出視窗 (DOG / CAT) -->
+    <div id="formModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeFormModal()">&times;</span>
+            <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px; font-weight: 700;">請選擇毛孩種類</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">請依據您的需求，點擊前往對應的專屬評估問卷：</p>
+            
+            <div class="modal-buttons">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBE2c2S0SIq3ZtZ3AfIlcq2pPNgO2OJZP5ALQf1kEZ8CrLJg/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-outline" style="text-align: center; font-size: 1.05rem; padding: 18px;">
+                    🐶 狗狗專屬問卷
+                </a>
+                <a href="https://forms.gle/6RRPN8MR6KRBdy9A8" target="_blank" rel="noopener noreferrer" class="btn-outline" style="text-align: center; font-size: 1.05rem; padding: 18px;">
+                    🐱 貓咪專屬問卷
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // 控制社群預約視窗
         function openModal() {
             const modal = document.getElementById('bookingModal');
             modal.classList.add('active');
@@ -915,10 +925,27 @@
             modal.classList.remove('active');
         }
 
+        // 控制問卷選擇視窗
+        function openFormModal() {
+            const formModal = document.getElementById('formModal');
+            formModal.classList.add('active');
+        }
+
+        function closeFormModal() {
+            const formModal = document.getElementById('formModal');
+            formModal.classList.remove('active');
+        }
+
+        // 點擊視窗外圍空白處時自動關閉
         window.onclick = function(event) {
-            const modal = document.getElementById('bookingModal');
-            if (event.target == modal) {
+            const bookingModal = document.getElementById('bookingModal');
+            const formModal = document.getElementById('formModal');
+            
+            if (event.target == bookingModal) {
                 closeModal();
+            }
+            if (event.target == formModal) {
+                closeFormModal();
             }
         }
     </script>
