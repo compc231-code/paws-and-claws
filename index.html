@@ -74,13 +74,23 @@
             top: 0;
             z-index: 1000;
         }
+        
+        /* 修改後的 Logo 樣式 */
         .logo {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-main);
             text-decoration: none;
             letter-spacing: 0.05em;
+            display: flex;       /* 讓圖片與文字水平排列 */
+            align-items: center; /* 讓圖片與文字垂直置中 */
+            gap: 10px;           /* 圖片與文字之間的間距 */
         }
+        .logo img {
+            height: 1.25rem;     /* 設定圖片高度與字體大小一致 */
+            width: auto;         /* 保持圖片原始比例 */
+        }
+
         nav ul {
             list-style: none;
             display: flex;
@@ -641,7 +651,10 @@
     </div>
 
     <header>
-        <a href="#" class="logo">DOG & CAT</a>
+        <a href="#" class="logo">
+            <img src="./images/Jia Logo.png" alt="Jia Logo">
+            DOG & CAT
+        </a>
         <nav>
             <ul>
                 <li><a href="#about">關於訓練師</a></li>
