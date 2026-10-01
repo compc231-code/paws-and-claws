@@ -75,20 +75,13 @@
             z-index: 1000;
         }
         
-        /* 修改後的 Logo 樣式 */
+        /* 恢復為原本的文字 Logo 樣式 */
         .logo {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-main);
             text-decoration: none;
             letter-spacing: 0.05em;
-            display: flex;       /* 讓圖片與文字水平排列 */
-            align-items: center; /* 讓圖片與文字垂直置中 */
-            gap: 10px;           /* 圖片與文字之間的間距 */
-        }
-        .logo img {
-            height: 1.25rem;     /* 設定圖片高度與字體大小一致 */
-            width: auto;         /* 保持圖片原始比例 */
         }
 
         nav ul {
@@ -650,11 +643,9 @@
         基於動物行為學與正向增強科學 ‧ 打造和諧的伴侶動物生活學
     </div>
 
+    <!-- 恢復成純文字的 DOG & CAT -->
     <header>
-        <a href="#" class="logo">
-            <img src="./images/Jia Logo.png" alt="Jia Logo">
-            DOG & CAT
-        </a>
+        <a href="#" class="logo">DOG & CAT</a>
         <nav>
             <ul>
                 <li><a href="#about">關於訓練師</a></li>
@@ -911,10 +902,16 @@
         </div>
     </div>
 
-    <!-- 問卷選擇彈出視窗 -->
+    <!-- 問卷選擇彈出視窗 (已加入 Jia Logo) -->
     <div id="formModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-modal" onclick="closeFormModal()">&times;</span>
+            
+            <!-- 將 Jia Logo 放在問卷選擇視窗的上方 -->
+            <div style="margin-bottom: 20px;">
+                <img src="./images/Jia Logo.png" alt="Jia Logo" style="height: 65px; width: auto; object-fit: contain;">
+            </div>
+            
             <h3 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px; font-weight: 700;">請選擇毛孩種類</h3>
             <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">請依據您的需求，點擊前往對應的專屬評估問卷：</p>
             
